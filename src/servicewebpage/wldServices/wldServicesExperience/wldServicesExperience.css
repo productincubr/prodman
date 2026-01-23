@@ -1,0 +1,113 @@
+.wld-exp {
+  background: #000;
+  color: #fff;
+  padding: 120px 0;
+}
+
+.wld-exp-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 60px;
+}
+
+/* TOP TEXT */
+.wld-exp-top-text {
+  font-size: 25px;
+  line-height: 1.7;
+  font-family: "Abyssinica SIL", serif;
+  opacity: 0.9;
+  margin-bottom: 90px;
+}
+
+/* MAIN GRID */
+.wld-exp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* LEFT IMAGE */
+.wld-exp-left img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 22px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+}
+
+/* RIGHT COLUMN */
+.wld-exp-right {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* RIGHT IMAGE */
+.wld-exp-right-img {
+  width: 100%;
+  max-width: 550px;
+  border-radius: 22px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+}
+
+/* TEXT + ARROW */
+.wld-exp-text {
+  max-width: 420px;
+  position: relative;
+}
+
+.wld-exp-text img {
+  /* i want this arrow image color be blue like this color as it is #0000ff */
+  filter: invert(18%) sepia(100%) saturate(7481%) hue-rotate(210deg) brightness(100%) contrast(101%);
+  position: absolute;
+  top: -10px;
+  left: -110px;
+  transform: rotate(230deg);
+  width: 90px;
+  margin-bottom: 18px;
+}
+
+.wld-exp-text p {
+  font-size: 25px;
+  line-height: 1.7;
+  font-family: "Abyssinica SIL", serif;
+  opacity: 0.90;
+  margin-top: 20px;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 900px) {
+  .wld-exp-inner {
+    padding: 0 20px;
+  }
+
+  .wld-exp-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .wld-exp-left,
+  .wld-exp-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .wld-exp-left img,
+  .wld-exp-right-img {
+    max-width: 320px;
+  }
+
+  .wld-exp-text {
+    text-align: center;
+  }
+
+  .wld-exp-text img {
+    margin: 0 auto 14px;
+  }
+
+  .wld-exp-top-text {
+    font-size: 18px;
+    margin-bottom: 50px;
+  }
+}

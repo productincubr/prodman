@@ -1,0 +1,43 @@
+.design-approach{
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.design-approach-inner{
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 60px;
+}
+
+.design-approach-title{
+    font-size: 45px;
+    line-height: 1.7;
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    /* opacity: 0.90; */
+    margin-bottom: 40px;
+}
+
+.design-approach-text{
+    font-size: 25px;
+    line-height: 1.7;
+    /* opacity: 0.85; */
+    font-family: Abyssinica SIL, serif;
+
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 900px) {
+    .design-approach-inner{
+        padding: 0 20px;
+    }
+
+    .design-approach-title{
+        font-size: 32px;
+    }
+
+    .design-approach-text{
+        font-size: 20px;
+    }
+}

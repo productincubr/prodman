@@ -1,0 +1,630 @@
+/* ================= STUDIO SPACES ================= */
+
+.studio-spaces {
+  background: #000;
+  padding: 120px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  /* margin-bottom: 80px; */
+}
+
+/* Particle Canvas Background */
+.particle-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0; /* canvas placed above section background but behind content */
+  display: block;
+}
+
+.studio-spaces > *:not(.particle-canvas) {
+  position: relative;
+  z-index: 2;
+}
+
+.studio-spaces h2 {
+  font-size: 55px;
+  margin-bottom: 12px;
+  margin-top: -60px;
+}
+
+.studio-spaces h2 span {
+  color: #f4a640;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+}
+
+.studio-subtitle {
+  font-size: 18px;
+  opacity: 0.75;
+  margin-bottom: 70px;
+}
+
+/* layout */
+.studio-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+}
+
+/* RIGHT IMAGE */
+/* .studio-image-wrapper {
+  width: 360px;
+  height: 360px;
+  overflow: visible;
+  border-radius: 20px;
+  position: absolute;
+  right: 0;
+  z-index: 2;
+  margin-left: -150px;
+}
+
+.studio-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  top: 0;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+} */
+
+
+/* ================= STUDIO IMAGE REEL ================= */
+
+.studio-image-wrapper {
+  width: 100%;
+  max-width: 1300px; /* increase max width so images can be wider */
+  height: 460px;
+  overflow: hidden;
+  /* border-radius: 0; */
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+}
+
+/* moving strip */
+.studio-reel {
+  display: flex;
+  width: max-content;
+  animation: reelMove 30s linear infinite;
+}
+
+/* pause on hover */
+.studio-image-wrapper:hover .studio-reel {
+  animation-play-state: paused;
+}
+
+/* single image */
+/* .studio-reel-item {
+  width: 280px;
+  height: 320px;
+  margin-right: 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+} */
+
+.studio-reel-item {
+  width: 480px; /* wider to show full image content */
+  height: 460px; /* keep square items for consistent visuals */
+  margin-right: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  border-radius: 0;
+  background: #000;
+}
+.studio-reel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* maintain aspect ratio and fill the container */
+  object-position: center center;
+  border-radius: 0;
+  transition: transform 0.4s ease;
+}
+
+/* continuous reel animation */
+@keyframes reelMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.studio-reel {
+  will-change: transform;
+}
+
+/* when user manually navigates, pause CSS animation and animate transform smoothly */
+.studio-reel.manual {
+  animation: none !important;
+  transition: transform 420ms cubic-bezier(.2,.9,.2,1);
+}
+
+/* arrows */
+.reel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.06);
+  cursor: pointer;
+  z-index: 6;
+  transition: all 180ms ease;
+}
+
+.reel-arrow:hover { transform: translateY(-50%) scale(1.04); background: rgba(244,166,64,0.95); color: #000; }
+
+.reel-arrow.left { left: 8px; }
+.reel-arrow.right { right: 8px; }
+
+/* hide default scrollbars if any */
+.studio-image-wrapper { scrollbar-width: none; -ms-overflow-style: none; }
+.studio-image-wrapper::-webkit-scrollbar { display: none; }
+
+/* reel item inner: overlay button centered */
+.reel-item-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reel-more-btn {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%) scale(0.95);
+  opacity: 0;
+  background: #f4a640;
+  color: #000;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 8px 22px rgba(244,166,64,0.16);
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.studio-reel-item:hover img {
+  filter: brightness(0.62);
+  transform: scale(1.01);
+}
+
+.studio-reel-item:hover .reel-more-btn {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* === MODAL FIXED FULLSCREEN === */
+
+.studio-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.studio-modal-content {
+  width: 92%;
+  max-width: 1200px;
+  background: #0b0b0b;
+  border-radius: 18px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+}
+
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: #f4a640;
+  color: #000;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  transform: scale(1.15) rotate(90deg);
+  background: #ff6b6b;
+  box-shadow: 0 4px 15px rgba(244, 166, 64, 0.5);
+}
+
+/* === TOP SECTION === */
+
+.modal-top-section {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.modal-left {
+  flex: 1;
+  color: #fff;
+}
+
+.modal-left h3 {
+  color: #f4a640;
+  font-size: 26px;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.modal-left p {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.9;
+  text-align: left;
+}
+
+.modal-right {
+  width: 35%;
+  height: 220px;
+  border-radius: 14px;
+  overflow: hidden;
+  /* background: #1a1a1a; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* === FORM === */
+
+.modal-booking-section h4 {
+  text-align: center;
+  color: #f4a640;
+  margin-bottom: 14px;
+  font-size: x-large;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.booking-form input,
+.booking-form textarea {
+  background: #111;
+  border: 1px solid rgba(244,166,64,0.3);
+  color: #fff;
+  padding: 12px 14px;
+  border-radius: 10px;
+}
+
+.booking-form textarea {
+  resize: none;
+  height: 70px;
+}
+
+.booking-form button {
+  background: #f4a640;
+  color: #000;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Phone Input with Country Code */
+.phone-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.phone-input-wrapper .country-code {
+  position: absolute;
+  left: 14px;
+  color: #f4a640;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.phone-input-wrapper input {
+  padding-left: 50px !important;
+  width: 100%;
+}
+
+.booking-form input:focus,
+.booking-form textarea:focus {
+  outline: none;
+  border-color: #f4a640;
+  background: rgba(244, 166, 64, 0.1);
+}
+
+.booking-form input::placeholder,
+.booking-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* backdrop and entry animation */
+.studio-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2,2,2,0.6);
+  backdrop-filter: blur(6px) saturate(1.05);
+  transition: opacity 260ms ease;
+  opacity: 0;
+  animation: backdropIn 260ms ease forwards;
+}
+
+@keyframes backdropIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* modal content entrance */
+@keyframes modalPop {
+  0% { transform: translateY(18px) scale(0.985); opacity: 0; }
+  60% { transform: translateY(-6px) scale(1.012); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* subtle focus for accessibility */
+.studio-modal-content:focus { outline: none; box-shadow: 0 0 0 4px rgba(244,166,64,0.06); }
+
+/* === MOBILE FIX === */
+
+@media (max-width: 768px) {
+  .studio-modal-content {
+    padding: 18px;
+    gap: 18px;
+  }
+
+  .modal-top-section {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .modal-left h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .modal-left p {
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .modal-booking-section h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .modal-right {
+    width: 100%;
+    height: 140px;
+  }
+  .modal-right img {
+    /* object-fit: cover; */
+    object-fit: scale-down;
+    width: 100vw;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .booking-form {
+    gap: 10px;
+  }
+
+  .booking-form input,
+  .booking-form textarea {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .booking-form textarea {
+    height: 55px;
+  }
+
+  .booking-form button {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .modal-close {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    top: 12px;
+    right: 12px;
+  }
+}
+
+/* ================= MOBILE RESPONSIVE - REST OF THE PAGE ================= */
+
+@media (max-width: 768px) {
+  .studio-spaces {
+    padding: 60px 0;
+    margin-bottom: 60px;
+  }
+
+  .studio-spaces h2 {
+    font-size: 38px;
+  }
+
+  .studio-subtitle {
+    font-size: 16px;
+    margin-bottom: 50px;
+    padding: 0 20px;
+  }
+
+  /* Reel adjustments */
+  .studio-image-wrapper {
+    height: 320px;
+  }
+
+  .studio-reel-item {
+    width: 320px;
+    height: 320px;
+  }
+
+  .reel-arrow {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .studio-spaces {
+    padding: 40px 0;
+    margin-bottom: 40px;
+  }
+
+  .studio-spaces h2 {
+    font-size: 32px;
+    padding: 0 15px;
+  }
+
+  .studio-subtitle {
+    font-size: 14px;
+    margin-bottom: 40px;
+    padding: 0 15px;
+  }
+
+  /* Modal optimizations for small screens */
+  .studio-modal-content {
+    padding: 14px;
+    gap: 14px;
+  }
+
+  .modal-top-section {
+    gap: 12px;
+  }
+
+  .modal-left h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .modal-left p {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .modal-booking-section h4 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .modal-right {
+    height: 120px;
+  }
+
+  .booking-form {
+    gap: 8px;
+  }
+
+  .booking-form input,
+  .booking-form textarea {
+    padding: 9px 11px;
+    font-size: 13px;
+  }
+
+  .booking-form textarea {
+    height: 45px;
+  }
+
+  .booking-form button {
+    padding: 11px;
+    font-size: 13px;
+  }
+
+  .modal-close {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+    top: 10px;
+    right: 10px;
+  }
+
+  /* Reel for small mobile */
+  .studio-image-wrapper {
+    height: 280px;
+  }
+
+  .studio-reel-item {
+    width: 260px;
+    height: 260px;
+  }
+
+  .reel-arrow {
+    width: 34px;
+    height: 34px;
+  }
+
+  .reel-more-btn {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+}

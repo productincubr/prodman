@@ -1,0 +1,128 @@
+.case-study-redesign {
+    background: #000;
+    color: #fff;
+    padding: 90px 0;
+  }
+  
+  /* TOP TEXT */
+  .cs-top-text {
+    /* max-width: 900px; */
+    /* margin: 0 auto 80px; */
+    margin: 0px 40px 40px 60px;
+    text-align: left;
+    font-size: 26px;
+    line-height: 1.6;
+    opacity: 0.9;
+    padding: 0 20px;
+  }
+  
+  /* MAIN LAYOUT */
+  .cs-container {
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 90px;
+    align-items: start;
+  }
+  
+  /* LEFT IMAGE */
+  .cs-left {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .cs-left img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 22px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  }
+  
+  /* RIGHT SIDE */
+  .cs-right {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  /* STACKED CARDS */
+  .cs-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  
+  .cs-cards img {
+    width: 200px;
+    border-radius: 16px;
+    box-shadow: 0 14px 34px rgba(0,0,0,0.55);
+    transition: transform 0.35s ease;
+  }
+  
+  .cs-cards img:hover {
+    transform: translateX(6px);
+  }
+  
+  /* TEXT BLOCK */
+  .cs-text {
+    max-width: 480px;
+    position: relative;
+  }
+  
+  .cs-arrow {
+    width: 120px;
+    margin-bottom: 16px;
+    position: absolute;
+    left: -150px;
+    top: 0;
+    transform: rotate(230deg);
+  }
+  
+  .cs-text p {
+    margin-top: 30px;
+    font-size: 22px;
+    line-height: 1.7;
+    opacity: 0.85;
+    font-family: Apercu Pro ,sans-serif;
+  }
+  
+  /* MOBILE */
+  @media (max-width: 900px) {
+    .case-study-redesign {
+      padding: 80px 0;
+    }
+
+     .cs-top-text{
+        margin: 0px 0px 50px 0px ;
+     }
+  
+    .cs-container {
+      grid-template-columns: 1fr;
+      gap: 50px;
+      padding: 0 20px;
+    }
+  
+    .cs-left img {
+      max-width: 350px;
+    }
+  
+    .cs-cards {
+      align-items: center;
+    }
+  
+    .cs-cards img {
+      width: 200px;
+    }
+  
+    .cs-text {
+      text-align: center;
+      margin: auto;
+    }
+  
+    .cs-arrow {
+      margin: 0 auto 12px;
+    }
+  }
+  

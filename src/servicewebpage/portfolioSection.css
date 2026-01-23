@@ -1,0 +1,138 @@
+/* SECTION */
+.portfolio-section {
+  background: #000;
+  padding: 100px 0;
+  color: #fff;
+}
+
+.portfolio-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 40px;
+}
+
+/* HEADER */
+.portfolio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.portfolio-header h2 {
+  font-size: 42px;
+  font-weight: 600;
+}
+
+/* BUTTON */
+.portfolio-btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f4a640;
+  color: #000;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.portfolio-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(244, 166, 64, 0.35);
+}
+
+/* GRID */
+.portfolio-grid {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  isolation: isolate; /* 🔥 PREVENTS BLEED */
+}
+
+/* CARD */
+.portfolio-card {
+  width: 320px;
+  position: relative;
+  overflow: hidden; /* 🔥 CLIPS CONTENT */
+  background: #000;
+  border-radius: 14px;
+
+  cursor: pointer;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  will-change: transform;
+}
+
+/* IMAGE */
+.portfolio-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.4;
+}
+
+.portfolio-card img:hover {
+  opacity: 1;
+}
+
+/* DIM OVERLAY (PRO FIX) */
+.portfolio-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.portfolio-card.dimmed::after {
+  opacity: 1;
+}
+
+/* POSITIONING */
+.portfolio-card.left {
+  margin-right: -40px;
+  z-index: 1;
+}
+
+.portfolio-card.right {
+  margin-left: -40px;
+  z-index: 1;
+}
+
+.portfolio-card.center {
+  margin-top: 60px;
+  z-index: 2;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .portfolio-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .portfolio-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .portfolio-card {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .portfolio-card.left,
+  .portfolio-card.center,
+  .portfolio-card.right {
+    margin: 0;
+  }
+}

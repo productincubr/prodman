@@ -1,0 +1,89 @@
+/* =========================
+   CREATIVE SECTION
+========================= */
+
+.creative-section {
+  width: 100%;
+  background: #4a4a4a;
+  padding: 90px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.creative-container {
+  max-width: 900px;
+  text-align: center;
+  color: #fff;
+}
+
+/* TITLE */
+.creative-title {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+/* DESCRIPTION */
+.creative-desc {
+  font-size: 16px;
+  line-height: 1.7;
+  opacity: 0.9;
+  max-width: 720px;
+  margin: 0 auto 14px;
+}
+
+
+
+/* BUTTON */
+.creative-btn {
+  margin-top: 28px;
+  background: #f4a640;
+  color: #000;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+}
+
+.creative-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+}
+
+.btn-arrow {
+  font-size: 16px;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+  .creative-section {
+    padding: 80px 16px;
+  }
+
+  .creative-title {
+    font-size: 28px;
+  }
+
+  .creative-desc {
+    font-size: 13px;
+  }
+
+  .creative-btn {
+    font-size: 13px;
+    padding: 10px 18px;
+  }
+}

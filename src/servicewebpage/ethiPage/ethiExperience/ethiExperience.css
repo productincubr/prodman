@@ -1,0 +1,159 @@
+.case-exp {
+    background: #000;
+    color: #fff;
+    padding: 120px 0;
+  }
+  
+  .case-exp-inner {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 60px;
+  }
+  
+  /* Top paragraph */
+  .exp-top-text {
+    /* max-width: 700px; */
+    font-size: 25px;
+    line-height: 1.7;
+    font-family: Abyssinica SIL, serif;
+    opacity: 0.90;
+    margin-bottom: 80px;
+  }
+  
+  /* Visual layout */
+  .exp-visuals {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  /* Images */
+  .exp-image img {
+    width: 100%;
+    display: block;
+    position: relative;
+  }
+  
+  /* Left mobile */
+  .exp-image.left {
+    max-width: 420px;
+  }
+  
+  /* Right laptop */
+  .exp-image.right {
+    max-width: 520px;
+    margin-left: auto;
+    position: absolute;
+    top: 0;
+    right: -70px;
+  }
+
+  /* gentle orbit / float animation for laptop image */
+  .exp-image.right img {
+    /* subtle scale to feel more natural */
+    transform-origin: center;
+    /* animation: float-orbit 16s linear infinite; */
+    will-change: transform;
+    transition: filter 180ms ease;
+  }
+
+  /* reduced motion preference */
+  /* @media (prefers-reduced-motion: reduce) {
+    .exp-image.right img {
+      animation: none;
+    }
+  }
+
+  /* keyframes approximating a smooth circular/orbit path */
+  /* @keyframes float-orbit {
+    0% {
+      transform: translate(0px, 0px) rotate(0.2deg);
+    }
+    12.5% {
+      transform: translate(12px, -8px) rotate(0.8deg);
+    }
+    25% {
+      transform: translate(20px, 6px) rotate(1.2deg);
+    }
+    37.5% {
+      transform: translate(12px, 18px) rotate(0.6deg);
+    }
+    50% {
+      transform: translate(0px, 24px) rotate(0.0deg);
+    }
+    62.5% {
+      transform: translate(-12px, 18px) rotate(-0.6deg);
+    }
+    75% {
+      transform: translate(-20px, 6px) rotate(-1.2deg);
+    }
+    87.5% {
+      transform: translate(-12px, -8px) rotate(-0.8deg);
+    }
+    100% {
+      transform: translate(0px, 0px) rotate(-0.2deg);
+    }
+  } 
+   */
+  /* Text block */
+  .exp-text {
+    position: absolute;
+    /* right: -10px; */
+    right: 0;
+    bottom: 100px;
+    max-width:400px;
+  }
+  
+  .exp-text p {
+    font-size: 25px;
+    line-height: 1.7;
+    opacity: 0.85;
+    font-family: Abyssinica SIL, serif;
+  }
+  
+  /* Curly arrow */
+  .exp-arrow {
+    width: 120px;
+    margin-bottom: 20px;
+  }
+  
+  /* ---------------- MOBILE ---------------- */
+  
+  @media (max-width: 900px) {
+    .case-exp-inner {
+      padding: 0 20px;
+    }
+  
+    .exp-visuals {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  
+    .exp-text {
+      position: static;
+      max-width: 100%;
+    }
+  
+    .exp-image.left,
+    .exp-image.right {
+      max-width: 100%;
+      margin: 0;
+    }
+  
+    .exp-top-text {
+      margin-bottom: 40px;
+      font-size: 25px;
+    }
+
+  }
+  
+
+  /* ye mobile version mein right image jo hai laptop wali ye left image k niche aani chiye */
+
+    @media (max-width: 600px) {
+        .exp-image.right {
+        position: static;
+        }
+    }

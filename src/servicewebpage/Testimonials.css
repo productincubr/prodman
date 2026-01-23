@@ -1,0 +1,148 @@
+/* ===============================
+   TESTIMONIALS SECTION
+================================ */
+
+.testimonials-section {
+  background: #000;
+  padding: 60px 50px;
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* TITLE */
+.testimonials-title {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+.testimonials-title span {
+  color: #f4a640;
+  font-style: italic;
+}
+
+/* ROW */
+.testimonials-row {
+  /* hide horizontal overflow but allow vertical overflow so scaled cards aren't clipped */
+  overflow-x: hidden;
+  overflow-y: visible;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Track that scrolls left continuously. Two identical groups inside allow seamless looping. */
+.testimonials-track {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  /* smooth continuous motion */
+  animation: scroll-left 18s linear infinite;
+  /* ensure track fits content width */
+  width: max-content;
+}
+
+.testimonials-row:hover .testimonials-track {
+  /* pause when user hovers any card inside the row */
+  animation-play-state: paused;
+}
+
+.testimonials-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* CARD */
+.testimonial-card {
+    margin-top:17px;
+  background: #fff;
+  color: #000;
+  border-radius: 12px;
+  padding: 30px 22px;
+  min-width: 300px;
+  max-width: 300px;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative; /* allow z-index to take effect */
+}
+
+.testimonial-card:hover {
+  /* lift and gently scale the hovered card; place it above other elements */
+  transform: translateY(-8px) scale(1.04);
+  z-index: 9999;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+
+}
+
+/* Prevent pointer events on duplicated group to avoid duplicate hover flicker */
+/* .track-group[aria-hidden="true"] .testimonial-card {
+  pointer-events: none;
+} */
+
+/* Make each duplicated group lay out horizontally in a single row */
+.track-group {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* HEADER */
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  background: #000;
+  border-radius: 50%;
+}
+
+/* NAME */
+.testimonial-header h4 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.testimonial-header p {
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+/* TEXT */
+.testimonial-text {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+  .testimonials-title{
+    font-size: 28px;
+  }
+
+  .testimonial-card {
+    min-width: 300px;
+  }
+  .testimonials-section {
+    background: #000;
+    padding: 120px 20px;
+  }
+  
+}
+
+/* Keyframes: move from 0 to -50% of the full track (one group's width) */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
