@@ -94,22 +94,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
-  border: 1px solid transparent;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              border 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(244, 166, 64, 0.1);
   position: relative;
+  cursor: pointer;
 }
 
 .wwc-card.testimonial-card.active {
   transform: translateY(-10px);
   border: 1px solid #f4a640;
-  box-shadow: 0 0 20px #f4a640;
+  box-shadow: 0 0 25px rgba(244, 166, 64, 0.4);
 }
 
-.wwc-card.testimonial-card:hover {
-  transform: translateY(-10px);
-  border: 1px solid #f4a640;
-  box-shadow: 0 0 15px #f4a640;
-}
+/* Remove separate hover state - now controlled by active class */
 
 .testimonial-content {
   text-align: center;

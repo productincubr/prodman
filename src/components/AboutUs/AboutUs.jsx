@@ -34,15 +34,18 @@ const testimonialData = [
 
 const AboutUs = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    if (isPaused) return;
+    
     // Auto-rotate testimonials every 5 seconds
     const interval = setInterval(() => {
       setActiveTestimonial((prev) => (prev + 1) % testimonialData.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isPaused]);
 
   return (
     <section className="about-us-section" id="about-us">
@@ -58,6 +61,11 @@ const AboutUs = () => {
             <div
               key={testimonial.id}
               className={`wwc-card testimonial-card ${index === activeTestimonial ? "active" : ""}`}
+              onMouseEnter={() => {
+                setActiveTestimonial(index);
+                setIsPaused(true);
+              }}
+              onMouseLeave={() => setIsPaused(false)}
             >
               <div className="testimonial-content">
                 <h3 className="testimonial-name">{testimonial.name}</h3>
