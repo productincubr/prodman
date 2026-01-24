@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 
 import LandingFirst from "./pages/LandingFirst";
+import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import WhyChoose from "./components/WhyChoose/WhyChoose";
@@ -38,6 +41,11 @@ import ServicesContact from "./pages/ServicesContact";
 const Home = ({ openPopup, isPopupOpen, closePopup }) => {
   return (
     <>
+      <Helmet>
+        <title>Prodman Studio - Professional Photography & Podcast Studio</title>
+        <meta name="description" content="State-of-the-art photography and podcast studio spaces. Professional equipment, versatile sets, and expert support for all your creative projects." />
+      </Helmet>
+      
       <Navbar onBookNow={openPopup} />
 
       <Hero />
@@ -58,6 +66,11 @@ const Home = ({ openPopup, isPopupOpen, closePopup }) => {
 const Design = () => {
   return (
     <>
+      <Helmet>
+        <title>Design Services - Prodman | Branding, Web Design & More</title>
+        <meta name="description" content="Professional design services including product packaging, branding, web development, UX/UI design, and social media creatives. Expert creative solutions for your business." />
+      </Helmet>
+      
       <DesignHeader />
       <DesignHero />
       <OurServices />
@@ -120,39 +133,43 @@ const App = () => {
   const closePopup = () => setIsPopupOpen(false);
 
   return (
-    <Routes>
-      <Route path="/" element={<LandingFirst />} />
+    <ErrorBoundary>
+      <Routes>
+        <Route path="/" element={<LandingFirst />} />
 
-      <Route
-        path="/studio"
-        element={
-          <Home
-            openPopup={openPopup}
-            isPopupOpen={isPopupOpen}
-            closePopup={closePopup}
-          />
-        }
-      />
+        <Route
+          path="/studio"
+          element={
+            <Home
+              openPopup={openPopup}
+              isPopupOpen={isPopupOpen}
+              closePopup={closePopup}
+            />
+          }
+        />
 
-      {/* CONTACT PAGE ROUTE */}
-      <Route path="/studio/contact" element={<ContactUs />} />
+        {/* CONTACT PAGE ROUTE */}
+        <Route path="/studio/contact" element={<ContactUs />} />
 
-      {/* design page route */}
-      <Route path="/design" element={<Design />} />
-      <Route path="/design/portfolio" element={<Portfolio />} />
+        {/* design page route */}
+        <Route path="/design" element={<Design />} />
+        <Route path="/design/portfolio" element={<Portfolio />} />
 
-      {/* Ethi page routing (nested under /design) */}
-      <Route path='/design/ethi-services' element={<Ethi />} />
+        {/* Ethi page routing (nested under /design) */}
+        <Route path='/design/ethi-services' element={<Ethi />} />
 
-      {/* NBL page routing (nested under /design) */}
-      <Route path='/design/nbl-services' element={<NBL />} />
+        {/* NBL page routing (nested under /design) */}
+        <Route path='/design/nbl-services' element={<NBL />} />
 
-      {/* WLD page routing (nested under /design) */}
-      <Route path='/design/wld-services' element={<WLD />} />
+        {/* WLD page routing (nested under /design) */}
+        <Route path='/design/wld-services' element={<WLD />} />
 
-      <Route path="/design/contact" element={<ServicesContact/>} />
+        <Route path="/design/contact" element={<ServicesContact/>} />
 
-    </Routes>
+        {/* 404 Not Found Route - Must be last */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </ErrorBoundary>
   );
 };
 

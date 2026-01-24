@@ -25,7 +25,7 @@ const NblExperience = () => {
 
         {/* LEFT BIG IMAGE */}
         <div className="cs-left">
-          <img src={bigMockup} alt="App redesign mockup" />
+          <img src={bigMockup} alt="App redesign mockup" loading="lazy" />
         </div>
 
         {/* RIGHT SIDE */}

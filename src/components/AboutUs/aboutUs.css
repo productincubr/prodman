@@ -85,6 +85,63 @@
   border-radius: 18px;
 }
 
+/* TESTIMONIAL CARD STYLES */
+.wwc-card.testimonial-card {
+  background: #111;
+  border-radius: 18px;
+  padding: 40px 30px;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
+  border: 1px solid transparent;
+  position: relative;
+}
+
+.wwc-card.testimonial-card.active {
+  transform: translateY(-10px);
+  border: 1px solid #f4a640;
+  box-shadow: 0 0 20px #f4a640;
+}
+
+.wwc-card.testimonial-card:hover {
+  transform: translateY(-10px);
+  border: 1px solid #f4a640;
+  box-shadow: 0 0 15px #f4a640;
+}
+
+.testimonial-content {
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.testimonial-name {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.testimonial-role {
+  font-size: 16px;
+  opacity: 0.7;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.testimonial-quote {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.85;
+  font-style: italic;
+  color: #e0e0e0;
+}
+
 /* DOTS INDICATOR */
 .video-dots {
   display: flex;
@@ -147,6 +204,23 @@
     height: 340px;
   }
 
+  .wwc-card.testimonial-card {
+    height: 340px;
+    padding: 30px 25px;
+  }
+
+  .testimonial-name {
+    font-size: 24px;
+  }
+
+  .testimonial-role {
+    font-size: 15px;
+  }
+
+  .testimonial-quote {
+    font-size: 15px;
+  }
+
   .video-dots {
     gap: 10px;
     margin-top: 25px;
@@ -200,6 +274,27 @@
     max-width: 100%;
   }
 
+  .wwc-card.testimonial-card {
+    height: auto;
+    min-height: 320px;
+    width: 100% !important;
+    max-width: 100%;
+    padding: 35px 25px;
+  }
+
+  .testimonial-name {
+    font-size: 22px;
+  }
+
+  .testimonial-role {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+
+  .testimonial-quote {
+    font-size: 15px;
+  }
+
   .wwc-card.video-card.active {
     transform: translateY(-5px);
   }
@@ -230,7 +325,27 @@
     margin-bottom: 50px;
     background: linear-gradient(to bottom, #4f4f4f 80%, #000 20%);
   }
+wwc-card.testimonial-card {
+    height: auto;
+    min-height: 280px;
+    border-radius: 14px;
+    padding: 30px 20px;
+  }
 
+  .testimonial-name {
+    font-size: 20px;
+  }
+
+  .testimonial-role {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .testimonial-quote {
+    font-size: 14px;
+  }
+
+  .
   .wwc-container {
     padding: 0 16px;
   }
@@ -266,7 +381,27 @@
   }
 
   .wwc-card.video-card:hover {
-    transform: translateY(-3px);
+   wwc-card.testimonial-card {
+    height: auto;
+    min-height: 250px;
+    border-radius: 12px;
+    padding: 25px 18px;
+  }
+
+  .testimonial-name {
+    font-size: 18px;
+  }
+
+  .testimonial-role {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .testimonial-quote {
+    font-size: 13px;
+  }
+
+  . transform: translateY(-3px);
   }
 
   .video-dots {

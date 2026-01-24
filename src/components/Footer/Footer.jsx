@@ -1,9 +1,6 @@
 import "./footer.css";
 import prodmanLogo from "../../assets/icons/prodmanLogo.png"; // update path
 import incubrLogo from "../../assets/icons/incubrLogo.png";   // update path
-import { FaFacebook } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaPhone } from "react-icons/fa6";
 import { TfiEmail } from "react-icons/tfi";
@@ -47,28 +44,12 @@ const Footer = () => {
               <a href="mailto:products@incubr.com">products@incubr.com</a>
             </div>
           </div>
-
-          <div className="footer-social">
-            <div className="social-icons">
-                <a href="#" aria-label="Facebook"><FaFacebook size={18} /></a>
-                <a href="#" aria-label="LinkedIn"><FaLinkedin size={18} /></a>
-                <a href="#" aria-label="Instagram"><FaInstagram size={18} /></a>
-            </div>
-          </div>
         </div>
       </div>
 
       <div className="footer-divider"></div>
 
       <div className="footer-bottom">
-        <ul className="footer-links">
-          <li>Home</li>
-          <li>Why Choose Us?</li>
-          <li>About Us</li>
-          <li>Portfolio</li>
-          <li>Career</li>
-        </ul>
-
         <p className="footer-copy">
           Copyright © INCUBR TECH PVT LTD 2023
         </p>

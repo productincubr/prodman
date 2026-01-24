@@ -44,6 +44,7 @@
   animation: scroll-left 18s linear infinite;
   /* ensure track fits content width */
   width: max-content;
+  will-change: transform;
 }
 
 .testimonials-row:hover .testimonials-track {
@@ -66,7 +67,8 @@
   max-width: 300px;
   flex-shrink: 0;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  position: relative; /* allow z-index to take effect */
+  position: relative;
+  will-change: transform;
 }
 
 .testimonial-card:hover {
@@ -102,6 +104,16 @@
   height: 50px;
   background: #000;
   border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* NAME */

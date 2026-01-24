@@ -38,6 +38,7 @@ body {
     border-radius: 50%;
     background: radial-gradient(circle, rgba(244, 166, 64, 0.1), transparent);
     animation: float 20s infinite ease-in-out;
+    will-change: transform;
 }
 
 .shape-1 {
@@ -118,6 +119,7 @@ body {
     height: 40px;
     opacity: 0;
     animation: moveArrow 8s infinite ease-in-out;
+    will-change: transform, opacity;
 }
 
 .arrow-1 {
@@ -178,6 +180,7 @@ body {
     background: rgba(244, 166, 64, 0.6);
     border-radius: 50%;
     animation: particleFloat 15s infinite ease-in-out;
+    will-change: transform;
 }
 
 .particle:nth-child(1) {

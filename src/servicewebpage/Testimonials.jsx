@@ -3,28 +3,46 @@ import "./Testimonials.css";
 
 const testimonials = [
   {
-    name: "Vivek Mujral",
-    role: "Businessman",
+    name: "Priya Sharma",
+    role: "Founder, FreshBloom Organics",
     quote:
-      "Prodman created a brand that truly reflects our mission. We couldn’t be happier!",
+      "Prodman transformed our packaging from ordinary to extraordinary. Their design strategy helped us stand out in the competitive organic food market. Sales increased by 40% within three months!",
+    image: "https://i.pravatar.cc/150?img=47"
   },
   {
-    name: "Vivek Mujral",
-    role: "Businessman",
+    name: "Rajesh Kulkarni",
+    role: "CEO, TechVista Solutions",
     quote:
-      "Prodman created a brand that truly reflects our mission. We couldn’t be happier!",
+      "The branding and positioning work they did for our startup was phenomenal. They understood our vision and created an identity that resonates with our target audience perfectly.",
+    image: "https://i.pravatar.cc/150?img=12"
   },
   {
-    name: "Vivek Mujral",
-    role: "Businessman",
+    name: "Ananya Reddy",
+    role: "Marketing Head, Spice Route Foods",
     quote:
-      "Prodman created a brand that truly reflects our mission. We couldn’t be happier!",
+      "Working with Prodman on our product packaging was a game-changer. Their attention to detail and creative approach helped us create packaging that tells our brand story beautifully.",
+    image: "https://i.pravatar.cc/150?img=45"
   },
   {
-    name: "Vivek Mujral",
-    role: "Businessman",
+    name: "Vikram Desai",
+    role: "Co-founder, UrbanNest Furniture",
     quote:
-      "Prodman created a brand that truly reflects our mission. We couldn’t be happier!",
+      "The web development and UX/UI design services exceeded our expectations. Our new website is not just beautiful but also incredibly user-friendly. Customer engagement has doubled!",
+    image: "https://i.pravatar.cc/150?img=15"
+  },
+  {
+    name: "Meera Iyer",
+    role: "Brand Manager, Wellness Co.",
+    quote:
+      "Prodman's social media creatives have transformed our online presence. Their designs are eye-catching and perfectly aligned with our wellness brand's ethos. Highly recommended!",
+    image: "https://i.pravatar.cc/150?img=38"
+  },
+  {
+    name: "Arjun Kapoor",
+    role: "Director, Heritage Handicrafts",
+    quote:
+      "From strategy to execution, Prodman delivered excellence at every step. They helped us rebrand our traditional handicraft business for modern consumers while maintaining our heritage.",
+    image: "https://i.pravatar.cc/150?img=33"
   },
 ];
 
@@ -43,7 +61,9 @@ const Testimonials = () => {
               {testimonials.map((item, index) => (
                 <div className="testimonial-card" key={`a-${index}`}>
                   <div className="testimonial-header">
-                    <div className="avatar"></div>
+                    <div className="avatar">
+                      <img src={item.image} alt={item.name} />
+                    </div>
                     <div>
                       <h4>{item.name}</h4>
                       <p>{item.role}</p>
@@ -59,7 +79,9 @@ const Testimonials = () => {
               {testimonials.map((item, index) => (
                 <div className="testimonial-card" key={`b-${index}`}>
                   <div className="testimonial-header">
-                    <div className="avatar"></div>
+                    <div className="avatar">
+                      <img src={item.image} alt={item.name} />
+                    </div>
                     <div>
                       <h4>{item.name}</h4>
                       <p>{item.role}</p>

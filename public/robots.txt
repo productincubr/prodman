@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow admin or private paths if any
+# Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://prodman.com/sitemap.xml

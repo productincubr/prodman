@@ -24,7 +24,7 @@ const WldServicesExperience = () => {
 
           {/* LEFT IMAGE */}
           <div className="wld-exp-left">
-            <img src={wldServicesLeft} alt="Mobile layout design" />
+            <img src={wldServicesLeft} alt="Mobile layout design" loading="lazy" />
           </div>
 
           {/* RIGHT SIDE */}

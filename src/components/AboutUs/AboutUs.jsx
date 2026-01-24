@@ -1,49 +1,48 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./aboutUs.css";
 
-const videoData = [
+const testimonialData = [
   {
     id: 1,
-    videoUrl: "/src/assets/videos/video1.mp4", // Replace with your actual video paths
+    name: "Satabdi",
+    role: "Client",
+    quote: "Very smooth and well-organized studio shoot. The commitment level is impressive, and the team has a fresh, modern approach to design. Great quality work at a very reasonable price.",
+    image: "https://i.pravatar.cc/150?img=47"
   },
   {
     id: 2,
-    videoUrl: "/src/assets/videos/video2.mp4",
+    name: "Swareena",
+    role: "Client",
+    quote: "Amazing experience with the studio shoot. The team is new yet highly professional, creative, and detail-oriented. Definitely value for money and worth recommending.",
+    image: "https://i.pravatar.cc/150?img=45"
   },
   {
     id: 3,
-    videoUrl: "/src/assets/videos/video3.mp4",
+    name: "Diya",
+    role: "Marketing Team Lead",
+    quote: "I and the team had an opportunity to shoot at the studio and we were quite impressed. The set and props were great, the whole ambiance for that matter. Even the staff was amicable and sweet.",
+    image: "https://i.pravatar.cc/150?img=38"
   },
   {
     id: 4,
-    videoUrl: "/src/assets/videos/video4.mp4",
+    name: "Sikander",
+    role: "Client",
+    quote: "Studio shooting experience was top-notch. Team was very professional and committed to timelines. Being a new team, their creativity and design sense really stood out. Totally value for money.",
+    image: "https://i.pravatar.cc/150?img=12"
   },
 ];
 
 const AboutUs = () => {
-  const [activeVideo, setActiveVideo] = useState(0);
-  const videoRefs = useRef([]);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   useEffect(() => {
-    // Play the active video
-    const currentVideo = videoRefs.current[activeVideo];
-    if (currentVideo) {
-      currentVideo.play();
-    }
+    // Auto-rotate testimonials every 5 seconds
+    const interval = setInterval(() => {
+      setActiveTestimonial((prev) => (prev + 1) % testimonialData.length);
+    }, 5000);
 
-    // Pause all other videos
-    videoRefs.current.forEach((video, index) => {
-      if (video && index !== activeVideo) {
-        video.pause();
-        video.currentTime = 0;
-      }
-    });
-  }, [activeVideo]);
-
-  const handleVideoEnd = () => {
-    // Move to next video when current video ends
-    setActiveVideo((prev) => (prev + 1) % videoData.length);
-  };
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="about-us-section" id="about-us">
@@ -53,40 +52,30 @@ const AboutUs = () => {
           What<span className="chooseUs"> They Say</span> About Us
         </h2>
 
-        {/* <p className="wwc-desc reveal">
-          We work hard to bring you top-tier creative talent and ensure stellar execution
-          <span> — until you say "Dude, Thank You!"</span>
-        </p> */}
-
-        {/* VIDEO CARDS */}
+        {/* TESTIMONIAL CARDS */}
         <div className="wwc-cards">
-          {videoData.map((video, index) => (
+          {testimonialData.map((testimonial, index) => (
             <div
-              key={video.id}
-              className={`wwc-card video-card ${index === activeVideo ? "active" : ""}`}
+              key={testimonial.id}
+              className={`wwc-card testimonial-card ${index === activeTestimonial ? "active" : ""}`}
             >
-              <video
-                ref={(el) => (videoRefs.current[index] = el)}
-                className="card-video"
-                onEnded={handleVideoEnd}
-                muted
-                playsInline
-              >
-                <source src={video.videoUrl} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <div className="testimonial-content">
+                <h3 className="testimonial-name">{testimonial.name}</h3>
+                <p className="testimonial-role">{testimonial.role}</p>
+                <p className="testimonial-quote">"{testimonial.quote}"</p>
+              </div>
             </div>
           ))}
         </div>
 
         {/* DOTS INDICATOR */}
         <div className="video-dots">
-          {videoData.map((_, index) => (
+          {testimonialData.map((_, index) => (
             <button
               key={index}
-              className={`dot ${index === activeVideo ? "active" : ""}`}
-              onClick={() => setActiveVideo(index)}
-              aria-label={`Play video ${index + 1}`}
+              className={`dot ${index === activeTestimonial ? "active" : ""}`}
+              onClick={() => setActiveTestimonial(index)}
+              aria-label={`View testimonial ${index + 1}`}
             />
           ))}
         </div>

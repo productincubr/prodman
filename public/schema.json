@@ -1,0 +1,41 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Prodman",
+  "image": "https://prodman.com/logo.png",
+  "description": "Professional photography studio and design services offering state-of-the-art studio spaces, creative design solutions, and expert branding services.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "740, Phase V, Udyog Vihar, Sector 19",
+    "addressLocality": "Gurugram",
+    "addressRegion": "Haryana",
+    "postalCode": "122016",
+    "addressCountry": "IN"
+  },
+  "telephone": "+91-99999-88493",
+  "email": "products@incubr.com",
+  "url": "https://prodman.com",
+  "sameAs": [
+    "https://www.facebook.com/prodman",
+    "https://www.linkedin.com/company/prodman",
+    "https://www.instagram.com/prodman"
+  ],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "24"
+  }
+}

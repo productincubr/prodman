@@ -54,7 +54,7 @@ const PortfolioSection = () => {
                   damping: 22,
                 }}
               >
-                <img src={card.img} alt="Portfolio Project" />
+                <img src={card.img} alt="Portfolio Project" loading="lazy" />
               </motion.div>
             );
 

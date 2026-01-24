@@ -303,7 +303,6 @@ const StudioSpaces = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        console.log('Booking submitted:', formData);
         alert(`Thank you for booking ${modalData.name}! We will contact you soon.`);
         setFormData({ name: '', email: '', phone: '', date: '', message: '' });
         setModalOpen(false);

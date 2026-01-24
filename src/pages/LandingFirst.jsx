@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import '../styles/landingFirst.css';
 import prodmanIcon from '../assets/image/prodmanIcon.png';
 
@@ -17,18 +18,14 @@ const LandingFirst = () => {
 
         // Mobile touch effect for dot circle glow
         const handleTouch = (e) => {
-            console.log('Touch detected!'); // Debug log
             const logoWrapper = document.querySelector('.logo-wrapper');
-            console.log('Logo wrapper found:', logoWrapper); // Debug log
             
             // Check if touch is not on a button
             if (!e.target.closest('.btnL') && !e.target.closest('a')) {
                 if (logoWrapper) {
-                    console.log('Adding touched class'); // Debug log
                     logoWrapper.classList.add('touched');
                     setTimeout(() => {
                         logoWrapper.classList.remove('touched');
-                        console.log('Removed touched class'); // Debug log
                     }, 600);
                 }
             }
@@ -46,6 +43,11 @@ const LandingFirst = () => {
 
     return (
         <div className='landingPage'>
+            <Helmet>
+                <title>Welcome to Prodman - Studio & Design Services</title>
+                <meta name="description" content="Choose between our professional photography studio and creative design services. Professional spaces and expert solutions for your creative needs." />
+            </Helmet>
+            
             {/* <!-- Animated Background --> */}
             <div className="animated-bg">
                 <div className="floating-shape shape-1"></div>

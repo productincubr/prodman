@@ -15,6 +15,15 @@ const DesignHeader = ({ onBookNow }) => {
     setIsMenuOpen(false);
   };
 
+  const scrollToServices = (e) => {
+    e.preventDefault();
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    closeMenu();
+  };
+
   return (
     // Header Section
   <header className="design-header">
@@ -29,7 +38,7 @@ const DesignHeader = ({ onBookNow }) => {
       </button>
 
       <nav className={`design-nav-links ${isMenuOpen ? 'active' : ''}`}>
-        <a href='#' onClick={closeMenu}>Services</a>
+        <a href='#services' onClick={scrollToServices}>Services</a>
         <Link to='/design/portfolio' onClick={closeMenu}>Portfolio</Link>
         {/* <a href="#" onClick={closeMenu}>Impact</a> */}
         <Link to="/design/contact"  onClick={closeMenu}>Contact Us</Link>
