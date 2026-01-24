@@ -19,7 +19,7 @@ const DesignHeader = ({ onBookNow }) => {
     // Header Section
   <header className="design-header">
     <div className="design-nav-container">
-      <a href="/design"><img src={logo} alt="prodmanLogo" className="design-logo"  /></a> 
+      <Link to="/"><img src={logo} alt="prodmanLogo" className="design-logo"  /></Link> 
 
       {/* Hamburger Menu Button */}
       <button className={`design-hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu} aria-label="Toggle menu">
@@ -31,7 +31,7 @@ const DesignHeader = ({ onBookNow }) => {
       <nav className={`design-nav-links ${isMenuOpen ? 'active' : ''}`}>
         <a href='#' onClick={closeMenu}>Services</a>
         <Link to='/design/portfolio' onClick={closeMenu}>Portfolio</Link>
-        <a href="#" onClick={closeMenu}>Impact</a>
+        {/* <a href="#" onClick={closeMenu}>Impact</a> */}
         <Link to="/design/contact"  onClick={closeMenu}>Contact Us</Link>
         
         {/* Book Now button inside mobile menu */}
@@ -39,7 +39,7 @@ const DesignHeader = ({ onBookNow }) => {
       </nav>
 
       {/* Desktop Book Now button */}
-      <a href="#connect" style={{textDecoration: 'none'}}>
+      <a href="/design#connect" style={{textDecoration: 'none'}}>
        <button className="design-btn-primary design-desktop-book" onClick={onBookNow}>Let's Connect</button>
       </a>
     </div>

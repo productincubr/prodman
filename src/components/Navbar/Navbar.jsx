@@ -19,7 +19,7 @@ const Navbar = ({ onBookNow }) => {
     // Header Section
   <header className="header">
     <div className="nav-container">
-      <a href="/studio"><img src={logo} alt="prodmanLogo" className="logo"  /></a> 
+      <Link to="/"><img src={logo} alt="prodmanLogo" className="logo"  /></Link>
 
       {/* Hamburger Menu Button */}
       <button className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu} aria-label="Toggle menu">
@@ -32,7 +32,7 @@ const Navbar = ({ onBookNow }) => {
         <Link to="/studio" onClick={closeMenu}>Home</Link>
         <a href="#howItWorks" onClick={closeMenu}>How it works</a>
         <a href="#studios" onClick={closeMenu}>Studios</a>
-        <a href="#packages" onClick={closeMenu}>Packages</a>
+        {/* <a href="#packages" onClick={closeMenu}>Packages</a> */}
         <Link to="/studio/contact" onClick={closeMenu}>Contact Us</Link>
         
         {/* Book Now button inside mobile menu */}

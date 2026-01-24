@@ -17,7 +17,7 @@ const DesignFooter = () => {
       <div className="footer-top">
 
         <div className="footer-brand">
-          <img src={prodmanLogo} alt="Prodman" className="footer-logo" />
+          <Link to="/"><img src={prodmanLogo} alt="Prodman" className="footer-logo" /></Link>
           <div className="footer-incubr">
             <img src={incubrLogo} alt="Incubr Tech Pvt Ltd" />
           </div>

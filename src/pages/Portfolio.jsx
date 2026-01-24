@@ -43,10 +43,10 @@ const Portfolio = () => {
                             </Link>
                         ))}
                     </div>
-
+{/* 
                     <button className="view-all-btn">
                         View All <span>→</span>
-                    </button>
+                    </button> */}
                 </div>
             </section>
 
