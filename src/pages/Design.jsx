@@ -4,6 +4,7 @@ import OurServices from "../servicewebpage/OurServices";
 import DesignFooter from "../servicewebpage/DesignFooter";
 import Testimonials from "../servicewebpage/Testimonials";
 import PortfolioSection from "../servicewebpage/PortfolioSection";
+import OurCapabilities from "../servicewebpage/OurCapabilities";
 import GetInTouchDesign from "../servicewebpage/GetInTouchDesign";
 import Seo from "../components/Seo/Seo";
 import "./Design.css";
@@ -21,6 +22,7 @@ const Design = () => {
       <OurServices />
       <Testimonials />
       <PortfolioSection />
+      <OurCapabilities />
       <GetInTouchDesign />
       <DesignFooter />
     </div>
