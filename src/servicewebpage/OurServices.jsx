@@ -1,5 +1,5 @@
 import React from "react";
-import "./ourServices.css";
+import "./OurServices.css";
 import icon from '../assets/icons/ContainerIcon.png' // replace with your icon
 // import containerIcon from "../../assets/icons/ContainerIcon.png";
 
