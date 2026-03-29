@@ -478,7 +478,8 @@ body {
     gap: 100px;
     margin-top: 40px;
     position: relative;
-    z-index: 3;
+    z-index: 50;
+    pointer-events: auto;
 }
 
 
@@ -498,7 +499,11 @@ body {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.20);
     will-change: transform;
-    z-index: 4;
+    z-index: 50;
+    pointer-events: auto;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -517,16 +522,18 @@ body {
     transition: left 0.6s ease;
 }
 
-.btnL:hover::before {
-    left: 120%;
-}
+@media (hover: hover) and (pointer: fine) {
+    .btnL:hover::before {
+        left: 120%;
+    }
 
-/* lift + glow */
-.btnL:hover {
-    box-shadow: 0 15px 45px rgba(244, 166, 64, 0.4),
-        0 0 60px rgba(244, 166, 64, 0.2),
-        0 0 120px rgba(244, 166, 64, 0.1);
-    transform: translateY(-3px);
+    /* lift + glow */
+    .btnL:hover {
+        box-shadow: 0 15px 45px rgba(244, 166, 64, 0.4),
+            0 0 60px rgba(244, 166, 64, 0.2),
+            0 0 120px rgba(244, 166, 64, 0.1);
+        transform: translateY(-3px);
+    }
 }
 
 /* Reset shadow when button is focused or active so hover-only effect doesn't stick */
@@ -550,8 +557,10 @@ body {
     transition: transform 0.3s ease;
 }
 
-.btnL:hover .icon-arrow {
-    transform: translate(6px, -6px);
+@media (hover: hover) and (pointer: fine) {
+    .btnL:hover .icon-arrow {
+        transform: translate(6px, -6px);
+    }
 }
 
 /* ================= RESPONSIVE DESIGN ================= */
@@ -770,8 +779,10 @@ body {
     color: #fff;
   }
 
-    .btnL:hover .icon-arrow {
-        transform: translate(4px, -4px);
+    @media (hover: hover) and (pointer: fine) {
+        .btnL:hover .icon-arrow {
+            transform: translate(4px, -4px);
+        }
     }
 
     /* Floating shapes adjustments - smaller for mobile */

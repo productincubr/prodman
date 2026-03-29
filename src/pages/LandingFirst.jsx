@@ -1,33 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import '../styles/landingFirst.css';
 import prodmanIcon from '../assets/image/prodmanIcon.png';
 import Seo from '../components/Seo/Seo';
 
 const LandingFirst = () => {
-    useEffect(() => {
-        const handleTouch = (e) => {
-            const logoWrapper = document.querySelector('.logo-wrapper');
-            
-            // Check if touch is not on a button
-            if (!e.target.closest('.btnL') && !e.target.closest('a')) {
-                if (logoWrapper) {
-                    logoWrapper.classList.add('touched');
-                    setTimeout(() => {
-                        logoWrapper.classList.remove('touched');
-                    }, 600);
-                }
-            }
-        };
-
-        // Restrict to touch to avoid extra click processing that can interfere on mobile browsers.
-        document.addEventListener('touchstart', handleTouch, { passive: true });
-
-        return () => {
-            document.removeEventListener('touchstart', handleTouch);
-        };
-    }, []);
-
     return (
         <div className='landingPage'>
             <Seo
