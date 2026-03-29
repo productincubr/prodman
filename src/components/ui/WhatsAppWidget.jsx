@@ -19,11 +19,11 @@ const WhatsAppWidget = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end pointer-events-none">
       {/* Chat Popup */}
       <div
         className={cn(
-          "mb-4 w-[320px] origin-bottom-right rounded-2xl bg-[#111] border border-white/10 p-5 shadow-2xl transition-all duration-300",
+          "mb-4 w-[320px] origin-bottom-right rounded-2xl bg-[#111] border border-white/10 p-5 shadow-2xl transition-all duration-300 pointer-events-auto",
           isOpen ? "scale-100 opacity-100" : "scale-0 opacity-0 pointer-events-none"
         )}
       >
@@ -71,7 +71,7 @@ const WhatsAppWidget = () => {
       {/* Floating Action Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-center p-4 bg-[#25D366] text-white rounded-full shadow-lg hover:scale-105 transition-transform"
+        className="pointer-events-auto flex items-center justify-center p-4 bg-[#25D366] text-white rounded-full shadow-lg hover:scale-105 transition-transform"
       >
         <MessageCircle className="fill-current w-7 h-7" />
       </button>
